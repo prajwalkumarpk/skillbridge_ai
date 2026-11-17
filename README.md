@@ -1,57 +1,182 @@
-# SkillBridge AI – Prototype 0.1
+# 🚀 SkillBridge AI
+### Bridging the Gap Between Student Skills and Industry Careers
 
-A beginner-friendly Flask web application starter for the SkillBridge AI Ideathon project.
+**An AI-Assisted Career Guidance and Skill Development Platform**
 
-## Requirements
+SkillBridge AI is a career guidance platform designed to help college students and fresh graduates discover suitable career paths, identify skill gaps, evaluate their career readiness, and follow personalized learning roadmaps.
+
+Our goal is to transform career confusion into career clarity by connecting students' existing skills and interests with industry-relevant career opportunities.
+
+---
+
+## 🎯 Problem Statement
+
+Many students face difficulties when choosing their career paths because of:
+
+- Lack of awareness about available career opportunities.
+- Difficulty identifying the skills required for specific careers.
+- Uncertainty about what skills to learn.
+- Limited access to personalized career guidance.
+- The gap between academic knowledge and industry expectations.
+
+## 💡 Our Solution
+
+SkillBridge AI provides an integrated platform that connects career discovery with skill development.
+
+### ✨ Key Features
+
+**1. Smart Career Recommendations**
+- Analyzes students' skills and interests.
+- Recommends suitable career paths.
+- Displays career match scores.
+
+**2. Skill Gap Analysis**
+- Identifies existing and missing skills.
+- Compares student skills with career requirements.
+- Highlights areas that need improvement.
+
+**3. Career Readiness Assessment**
+- Career-focused multiple-choice questions.
+- Evaluates student knowledge.
+- Provides scores and performance feedback.
+
+**4. Personalized Learning Roadmap**
+- Generates a structured 30-day learning plan.
+- Suggests skills to improve.
+- Provides actionable learning guidance.
+
+**5. Assessment Reports**
+- Displays assessment performance.
+- Provides skill-wise improvement suggestions.
+- Supports printable reports.
+
+---
+
+## ⚙️ How It Works
+
+1. **Student Profile:** Enter educational details, skills, interests and career preferences.
+2. **Career Matching:** The recommendation engine analyzes the profile.
+3. **Skill Gap Analysis:** Identifies current skills and missing skills.
+4. **Career Assessment:** Evaluates career-related knowledge through MCQ tests.
+5. **Learning Roadmap:** Generates a personalized 30-day improvement plan.
+
+---
+
+## 🛠️ Technology Stack
+
+Our platform is developed using the following technologies:
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Python
+- **Web Framework:** Flask
+- **Recommendation Engine:** Weighted Skill and Interest Matching
+- **Development Environment:** Visual Studio Code
+- **Version Control:** Git and GitHub
+
+---
+
+## 📂 Project Structure
+
+skillbridge_ai/
+│
+├── app.py
+├── career_engine.py
+├── requirements.txt
+├── README.md
+│
+├── templates/
+│   ├── index.html
+│   ├── assessment.html
+│   └── assessment_result.html
+│
+└── static/
+    ├── css/
+    │   └── style.css
+    │
+    └── js/
+        └── main.js
+
+
+*Note: The template and static filenames above describe the intended structure; adjust them to match the actual files in the repository.*
+
+---
+
+## 💻 Installation and Setup
+
+Follow these steps to run SkillBridge AI locally.
+
+**Prerequisites**
 - Python 3.10 or newer
-- VS Code
-- Internet connection for installing Flask
+- Visual Studio Code
+- Git
 
-## Run on Windows
-1. Extract this folder.
-2. Open the `skillbridge_ai` folder in VS Code.
-3. Open Terminal → New Terminal.
-4. Create a virtual environment:
+**Step 1: Clone the repository**
 
-   ```powershell
-   py -m venv venv
-   ```
+```bash
+git clone https://github.com/prajwalkumarpk/skillbridge_ai.git
+```
 
-5. Activate it:
+**Step 2: Navigate to the project**
 
-   ```powershell
-   .\venv\Scripts\Activate.ps1
-   ```
+```bash
+cd skillbridge_ai
+```
 
-   If PowerShell blocks activation, use Command Prompt terminal and run:
+**Step 3: Create a virtual environment**
 
-   ```cmd
-   venv\Scripts\activate.bat
-   ```
+```bash
+python -m venv venv
+```
 
-6. Install Flask:
+**Step 4: Activate the virtual environment (Windows)**
 
-   ```powershell
-   python -m pip install -r requirements.txt
-   ```
+```bash
+venv\Scripts\activate
+```
 
-7. Start the app:
+**Step 5: Install dependencies**
 
-   ```powershell
-   python app.py
-   ```
+```bash
+python -m pip install -r requirements.txt
+```
 
-8. Open the local address shown in the terminal, usually `http://127.0.0.1:5000`.
+**Step 6: Run the application**
 
-## Current functionality
-- Landing page
-- Student profile form
-- Flask receives form data and displays a profile summary
+```bash
+python app.py
+```
 
-## Next modules
-1. Career Path Predictor
-2. Skill Gap Analyzer
-3. Career Readiness Simulator
-4. Learning roadmap and persistent database
+**Step 7: Open in your browser**
 
-Note: This first version does not yet save profiles permanently and does not make real AI predictions. Those will be added in later modules.
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## 🌱 Future Scope
+
+- Integration of advanced AI/ML-based career recommendations.
+- Real-time industry skill demand analysis.
+- Expanded career domains and learning resources.
+- Industry mentorship and internship opportunities.
+- Student progress tracking and analytics.
+
+---
+
+## 🌍 Expected Impact
+
+- Helps students make informed career decisions.
+- Improves awareness of industry-relevant skills.
+- Encourages structured skill development.
+- Reduces the gap between academic learning and industry expectations.
+- Promotes career readiness among students.
+
+---
+
+
+
+### SkillBridge AI
+**Turning Skills into Career Opportunities.**
+
+*From Career Confusion to Career Clarity.*
