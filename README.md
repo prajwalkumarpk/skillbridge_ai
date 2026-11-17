@@ -76,24 +76,29 @@ Our platform is developed using the following technologies:
 ---
 
 
+
 ## 📁 Project Structure
 
 ```text
 skillbridge_ai/
 │
-├── app.py
-├── career_engine.py
-├── requirements.txt
-├── README.md
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── main.js
 │
 ├── templates/
-│   ├── index.html
-│   └── assessment_result.html
+│   ├── assessment_result.html
+│   ├── assessment.html
+│   └── index.html
 │
-└── static/
-    ├── css/
-    └── js/
+├── app.py
+├── career_engine.py
+├── README.md
+└── requirements.txt
 ```
+
 
 
 
