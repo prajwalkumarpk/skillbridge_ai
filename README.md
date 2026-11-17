@@ -75,8 +75,10 @@ Our platform is developed using the following technologies:
 
 ---
 
-## 📂 Project Structure
 
+## 📁 Project Structure
+
+```text
 skillbridge_ai/
 │
 ├── app.py
@@ -86,15 +88,13 @@ skillbridge_ai/
 │
 ├── templates/
 │   ├── index.html
-│   ├── assessment.html
 │   └── assessment_result.html
 │
 └── static/
     ├── css/
-    │   └── style.css
-    │
     └── js/
-        └── main.js
+```
+
 
 
 *Note: The template and static filenames above describe the intended structure; adjust them to match the actual files in the repository.*
