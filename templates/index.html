@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge AI | Build Your Future</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+    
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        </head>
+
+
+<body>
+
+<main class="container">
+
+    <!-- STUDENT PROFILE FORM -->
+
+    <section class="panel">
+
+        <h1>SkillBridge AI</h1>
+
+        <p class="hint">
+            Build your future with AI-powered career guidance.
+        </p>
+
+        <form method="POST" id="profileForm">
+
+            <label for="name">Your Name</label>
+
+            <input type="text"
+                   id="name"
+                   name="name"
+                   placeholder="Enter your name"
+                   required>
+
+
+            <label for="education">Education</label>
+
+            <input type="text"
+                   id="education"
+                   name="education"
+                   placeholder="e.g. 3rd year CSE"
+                   required>
+
+
+            <label for="career_goal">Career Goal</label>
+
+            <select id="career_goal"
+                    name="career_goal"
+                    required>
+
+                <option value="">Choose a career goal</option>
+                <option>Software Developer</option>
+                <option>Data Scientist</option>
+                <option>AI/ML Engineer</option>
+                <option>Cybersecurity Analyst</option>
+                <option>Cloud Engineer</option>
+                <option>Not sure yet</option>
+
+            </select>
+
+
+            <label for="skills">
+                Current Skills
+                <span class="hint">
+                    Enter skills separated by commas
+                </span>
+            </label>
+
+            <input type="text"
+                   id="skills"
+                   name="skills"
+                   placeholder="e.g. Python, Java, HTML, CSS">
+
+
+            <label for="interests">Interests</label>
+
+            <textarea id="interests"
+                      name="interests"
+                      rows="3"
+                      placeholder="What topics interest you?"></textarea>
+
+
+            <button type="submit">
+                Create my profile
+                <span aria-hidden="true">→</span>
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- CAREER READINESS ASSESSMENT -->
+
+    <div class="assessment-section">
+
+        <h2>🎯 Career Readiness Simulator</h2>
+
+        <p>
+            Test your technical knowledge and discover
+            how prepared you are for your chosen career.
+        </p>
+
+        <div class="assessment-info">
+
+            <div>
+                <h3>10 Questions</h3>
+                <p>Technical MCQ Assessment</p>
+            </div>
+
+            <div>
+                <h3>Instant Results</h3>
+                <p>Automatic Score Calculation</p>
+            </div>
+
+            <div>
+                <h3>Career Insights</h3>
+                <p>Evaluate Your Knowledge</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CAREER RECOMMENDATIONS -->
+
+    {% if recommendations %}
+
+    <section class="panel">
+
+        <h2>Your Career Recommendations</h2>
+
+        <!-- CAREER COMPARISON DASHBOARD -->
+
+<div class="career-comparison">
+
+    <h3>📊 Compare Your Top Career Matches</h3>
+
+    <p>
+        Compare your recommended careers and identify
+        which path suits your current skills best.
+    </p>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Career</th>
+                    <th>Career Match</th>
+                    <th>Skill Readiness</th>
+                    <th>Skill Gaps</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for item in recommendations %}
+
+                <tr>
+                    <td>{{ item.career }}</td>
+                    <td>{{ item.match }}%</td>
+                    <td>{{ item.skill_readiness }}%</td>
+                    <td>{{ item.skill_gap_count }}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- END CAREER COMPARISON -->
+
+        {% for item in recommendations %}
+
+        <div class="career-card">
+
+            <h3>{{ item.career }}</h3>
+
+        <!-- AI CAREER RECOMMENDATION INSIGHTS -->
+
+<div class="ai-insights">
+
+    <h4>🤖 AI Recommendation Insights</h4>
+
+    {% if item.explanation %}
+        <p>{{ item.explanation }}</p>
+    {% endif %}
+
+    {% if item.score_breakdown %}
+
+        <div class="score-breakdown">
+
+            <p>
+                <strong>Skill Match:</strong>
+                {{ item.score_breakdown.skill_percentage }}%
+            </p>
+
+            <p>
+                <strong>Interest Match:</strong>
+                {{ item.score_breakdown.interest_percentage }}%
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+<!-- END AI INSIGHTS -->
+
+        <!-- CAREER ROADMAP DASHBOARD -->
+
+<div class="career-dashboard">
+
+    <h2>🚀 Your Career Roadmap Dashboard</h2>
+
+    <p>Track your career preparation and skill development.</p>
+
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card">
+            <h4>🎯 Career Match</h4>
+            <h2>{{ item.match }}%</h2>
+            <p>Your career compatibility</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h4>📊 Skill Readiness</h4>
+            <h2>{{ item.skill_readiness }}%</h2>
+            <p>{{ item.readiness_level }}</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h4>⚠️ Skill Gaps</h4>
+            <h2>{{ item.skill_gap_count }}</h2>
+            <p>Skills remaining to learn</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h4>📅 Learning Plan</h4>
+            <h2>30 Days</h2>
+            <p>Personalized roadmap</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-skills">
+
+        <div>
+            <h3>✅ Your Strong Skills</h3>
+
+            {% for skill in item.matched_skills %}
+                <span class="skill-tag">{{ skill }}</span>
+            {% else %}
+                <p>No matched skills yet.</p>
+            {% endfor %}
+        </div>
+
+        <div>
+            <h3>📚 Skills to Develop</h3>
+
+            {% for skill in item.missing_skills %}
+                <span class="missing-tag">{{ skill }}</span>
+            {% else %}
+                <p>You have covered all identified skills!</p>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+<!-- END CAREER DASHBOARD -->
+            <p>
+                Career Match: {{ item.match }}%
+            </p>
+
+
+            <!-- CAREER SPECIFIC ASSESSMENT -->
+
+            <a href="{{ url_for('assessment', career=item.career) }}"
+               class="assessment-start-btn">
+
+                Take {{ item.career }} Assessment →
+
+            </a>
+
+
+            <!-- SKILL GAP ANALYSIS -->
+
+            <div class="skill-analysis">
+
+                <h4>📊 Skill Gap Analysis</h4>
+
+                <p>
+                    <strong>Skill Readiness:</strong>
+                    {{ item.skill_readiness }}%
+                </p>
+
+
+                <div class="skill-progress-container">
+
+                    <div class="skill-progress-bar">
+
+                        <div class="skill-progress-fill"style="width: {{ item.skill_readiness }}%;"></div>
+
+                    </div>
+
+                </div>
+
+                <!-- VISUAL SKILL ANALYSIS -->
+
+<div class="visual-skill-analysis">
+
+    <h3>📈 Visual Skill Readiness</h3>
+
+    <p>Understand your current career skill readiness.</p>
+
+    <canvas
+        class="skillChart"
+        data-matched='{{ item.matched_skills | tojson }}'
+        data-missing='{{ item.missing_skills | tojson }}'>
+    </canvas>
+
+</div>
+
+<!-- END VISUAL SKILL ANALYSIS -->
+
+
+                <p>
+                    <strong>Readiness Level:</strong>
+                    {{ item.readiness_level }}
+                </p>
+
+                <p>
+                    <strong>Skill Gap Count:</strong>
+                    {{ item.skill_gap_count }}
+                </p>
+
+                <p>{{ item.gap_summary }}</p>
+
+            </div>
+
+
+            <!-- MATCHED AND MISSING SKILLS -->
+
+            <p>
+                <strong>Matched Skills:</strong>
+                {{ item.matched_skills | join(", ") }}
+            </p>
+
+            <p>
+                <strong>Skills to Learn:</strong>
+                {{ item.missing_skills | join(", ") }}
+            </p>
+
+            <p>
+                <strong>Matched Interests:</strong>
+                {{ item.matched_interests | join(", ") }}
+            </p>
+
+
+            <!-- LEARNING ROADMAP -->
+
+            <p><strong>Learning Roadmap:</strong></p>
+
+            <ul>
+
+                {% for step in item.roadmap %}
+
+                <li>{{ step }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+
+            <!-- PERSONALIZED 30-DAY LEARNING SCHEDULE -->
+
+            <div class="learning-roadmap">
+
+                <h2>
+                    📚 Your Personalized 30-Day Learning Roadmap
+                </h2>
+
+                <p>
+                    Follow your personalized learning schedule
+                    to develop the skills required for your career.
+                </p>
+
+
+                <!-- PROGRESS DASHBOARD -->
+
+                <div class="roadmap-progress">
+
+                    <h3>Learning Progress</h3>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                             style="width: 0%;">
+                        </div>
+
+                    </div>
+
+                    <p class="progress-text">
+                        0% Completed (0/30 Days)
+                    </p>
+
+                </div>
+
+
+                <!-- 30-DAY SCHEDULE -->
+
+                <div class="learning-days">
+
+                    {% for task in item.learning_plan %}
+
+                    <div class="learning-day"
+                         data-career="{{ item.career }}"
+                         data-day="{{ task.day }}">
+
+                        <div class="day-header">
+
+                            <h3>Day {{ task.day }}</h3>
+
+                            <span class="task-status">
+                                Pending
+                            </span>
+
+                        </div>
+
+                        <h4>{{ task.skill }}</h4>
+
+                        <p>{{ task.topic }}</p>
+
+                        <p>
+                            ⏱ Duration: {{ task.duration }}
+                        </p>
+
+                        <button
+                            type="button"
+                            class="complete-btn"
+                            onclick="toggleTask(this)">
+
+                            Mark as Completed
+
+                        </button>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <!-- END OF LEARNING ROADMAP -->
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- STUDENT PROFILE SUMMARY -->
+
+    {% if profile %}
+
+    <section class="result" aria-live="polite">
+
+        <p class="hint">
+            PROFILE CREATED FOR THIS SESSION
+        </p>
+
+        <h2>Welcome, {{ profile.name }}!</h2>
+
+        <p>
+            <strong>Education:</strong>
+            {{ profile.education }}
+        </p>
+
+        <p>
+            <strong>Career Goal:</strong>
+            {{ profile.career_goal }}
+        </p>
+
+        <p>
+            <strong>Skills:</strong>
+            {{ profile.skills }}
+        </p>
+
+        <p>
+            <strong>Interests:</strong>
+            {{ profile.interests }}
+        </p>
+
+        <p class="hint">
+            Next: Follow your learning roadmap and develop
+            your skills progressively.
+        </p>
+
+    </section>
+
+    {% endif %}
+
+</main>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<script>
+
+
+// UPDATE LEARNING PROGRESS
+
+function updateProgress(roadmap) {
+
+    const tasks = roadmap.querySelectorAll(".learning-day");
+
+    const completed = roadmap.querySelectorAll(
+        ".learning-day.completed"
+    ).length;
+
+    const total = tasks.length;
+
+    const percentage = total > 0
+        ? Math.round((completed / total) * 100)
+        : 0;
+
+    const progressFill = roadmap.querySelector(".progress-fill");
+
+    const progressText = roadmap.querySelector(".progress-text");
+
+    if (progressFill) {
+        progressFill.style.width = percentage + "%";
+    }
+
+    if (progressText) {
+
+        progressText.textContent =
+            percentage + "% Completed (" +
+            completed + "/" + total + " Days)";
+
+    }
+
+}
+
+
+// MARK TASK AS COMPLETED
+
+function toggleTask(button) {
+
+    const task = button.closest(".learning-day");
+
+    const roadmap = button.closest(".learning-roadmap");
+
+    task.classList.toggle("completed");
+
+    const completed = task.classList.contains("completed");
+
+    task.querySelector(".task-status").textContent =
+        completed ? "Completed" : "Pending";
+
+    button.textContent = completed
+        ? "Completed ✓"
+        : "Mark as Completed";
+
+    updateProgress(roadmap);
+
+
+    // SAVE PROGRESS IN LOCAL STORAGE
+
+    const key = "skillbridge_" + task.dataset.career;
+
+    const tasks = roadmap.querySelectorAll(".learning-day");
+
+    const completedDays = [];
+
+    tasks.forEach(day => {
+
+        if (day.classList.contains("completed")) {
+
+            completedDays.push(day.dataset.day);
+
+        }
+
+    });
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(completedDays)
+    );
+
+}
+
+
+
+// RESTORE SAVED LEARNING PROGRESS
+
+document.querySelectorAll(".learning-roadmap").forEach(roadmap => {
+
+    const firstTask = roadmap.querySelector(".learning-day");
+
+    if (!firstTask) return;
+
+    const career = firstTask.dataset.career;
+
+    const saved = JSON.parse(
+        localStorage.getItem("skillbridge_" + career) || "[]"
+    );
+
+
+    roadmap.querySelectorAll(".learning-day").forEach(task => {
+
+        if (saved.includes(task.dataset.day)) {
+
+            task.classList.add("completed");
+
+            task.querySelector(".task-status").textContent =
+                "Completed";
+
+            task.querySelector(".complete-btn").textContent =
+                "Completed ✓";
+
+        }
+
+    });
+
+
+    updateProgress(roadmap);
+
+});
+
+// VISUAL SKILL READINESS CHART
+
+document.querySelectorAll(".skillChart").forEach(canvas => {
+
+    const matched = JSON.parse(canvas.dataset.matched);
+    const missing = JSON.parse(canvas.dataset.missing);
+
+    const labels = [
+        ...matched,
+        ...missing
+    ];
+
+    const values = [
+        ...matched.map(() => 100),
+        ...missing.map(() => 0)
+    ];
+
+    new Chart(canvas, {
+
+        type: "bar",
+
+        data: {
+            labels: labels,
+
+            datasets: [{
+                label: "Skill Readiness",
+
+                data: values,
+
+                backgroundColor: values.map(value =>
+                    value === 100 ? "#16a085" : "#e67e22"
+                ),
+
+                borderRadius: 6
+            }]
+        },
+
+        options: {
+
+            indexAxis: "y",
+
+            responsive: true,
+
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: value => value + "%"
+                    }
+                }
+            }
+
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Assessment | SkillBridge AI</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f5fc;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .header {
+            background: #263b80;
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin-bottom: 10px;
+        }
+
+        .question-card {
+            background: white;
+            padding: 22px;
+            margin-top: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+
+        .question-card h3 {
+            color: #263b80;
+        }
+
+        .option {
+            display: block;
+            padding: 12px;
+            margin: 10px 0;
+            background: #f4f6fc;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #e4eaff;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            background: #263b80;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #17295e;
+        }
+
+        .instructions {
+            color: #555;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>🎯 Career Readiness Assessment</h1>
+        <h3>Career: {{ career }}</h3>
+
+        <p>Test your technical knowledge with SkillBridge AI</p>
+
+    </div>
+
+    <p class="instructions">
+        Answer all 10 questions and submit your assessment
+        to discover your career readiness level.
+    </p>
+
+    <form action="{{ url_for('assessment') }}" method="POST">
+        <input type="hidden" name="career" value="{{ career }}">
+
+        
+{% for question in questions %}
+
+{% set question_index = loop.index0 %}
+
+<div class="question-card">
+
+    <h3>
+        Question {{ loop.index }}:
+        {{ question.question }}
+    </h3>
+
+    {% for option in question.options %}
+
+    <label class="option">
+
+        <input
+            type="radio"
+            name="q{{ question_index }}"
+            value="{{ option }}"
+            required
+        >
+
+        {{ option }}
+
+    </label>
+
+    {% endfor %}
+
+</div>
+
+{% endfor %}
+
+
+        <button type="submit" class="submit-btn">
+            Submit Assessment →
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
