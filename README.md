@@ -76,7 +76,7 @@ SkillBridge AI provides an integrated platform that connects career discovery wi
 ![Assessment](screenshots/assessment_result.png)
 
 ### 5. Personalized Learning Roadmap
-![Learning Roadmap](screenshots/30-day roadmap.png)
+![Learning Roadmap](screenshots/roadmap.png)
 
 ---
 ## 🛠️ Technology Stack
