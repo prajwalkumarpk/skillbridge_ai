@@ -61,7 +61,24 @@ SkillBridge AI provides an integrated platform that connects career discovery wi
 5. **Learning Roadmap:** Generates a personalized 30-day improvement plan.
 
 ---
+## 📸 Application Screenshots
 
+### 1. Student Profile
+![Home Page](screenshots/home.png)
+
+### 2. Career Recommendations
+![Career Matching](screenshots/career_matching.png)
+
+### 3. Skill Gap Analysis
+![Skill Gap](screenshots/skill_gap.png)
+
+### 4. Career Assessment
+![Assessment](screenshots/assessment_result.png)
+
+### 5. Personalized Learning Roadmap
+![Learning Roadmap](screenshots/30-day roadmap.png)
+
+---
 ## 🛠️ Technology Stack
 
 Our platform is developed using the following technologies:
