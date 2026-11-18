@@ -61,23 +61,46 @@ SkillBridge AI provides an integrated platform that connects career discovery wi
 5. **Learning Roadmap:** Generates a personalized 30-day improvement plan.
 
 ---
-## 📸 Application Screenshots
+## 💼 Business Model & Revenue Model
 
-### 1. Student Profile
-![Home Page](screenshots/home.png)
+SkillBridge AI follows a **Freemium Business Model**, providing essential career guidance to students for free while generating revenue through premium services and institutional partnerships.
 
-### 2. Career Recommendations
-![Career Matching](screenshots/career_matching.png)
+### 1. Target Customers
+- Engineering and college students.
+- Educational institutions and universities.
+- Students preparing for internships and placements.
 
-### 3. Skill Gap Analysis
-![Skill Gap](screenshots/skill_gap.png)
+### 2. Revenue Streams
 
-### 4. Career Assessment
-![Assessment](screenshots/assessment_result.png)
+**A. Freemium Model**
+- Free access to basic career recommendations.
+- Basic skill gap analysis and learning roadmaps.
+- Premium personalized career guidance through paid subscriptions.
 
-### 5. Personalized Learning Roadmap
-![Learning Roadmap](screenshots/roadmap.png)
+**B. Institutional Partnerships**
+- Partner with colleges and universities.
+- Provide customized career assessment dashboards.
+- Offer subscription-based access to institutions.
 
+**C. Premium Services**
+- Advanced career assessments.
+- Personalized learning roadmaps.
+- Detailed skill development recommendations.
+- Internship and placement preparation resources.
+
+### 3. Value Proposition
+- Helps students identify suitable career paths.
+- Identifies skill gaps based on career requirements.
+- Provides personalized learning recommendations.
+- Makes career guidance more accessible and affordable.
+
+### 4. Future Growth Opportunities
+- AI-powered resume analysis.
+- Internship and job recommendations.
+- Industry and recruiter partnerships.
+- Integration with learning platforms.
+
+**Our Vision:** To bridge the gap between students' existing skills and industry requirements by making personalized career guidance accessible to every student.
 ---
 ## 🛠️ Technology Stack
 
